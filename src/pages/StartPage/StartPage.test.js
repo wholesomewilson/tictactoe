@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
+import { Link } from 'react-router-dom';
 import StartPage from './StartPage';
-import Field from '../Field/Field.jsx';
-import Button from '../Button/Button.jsx';
+import Field from '../../components/Field/Field.jsx';
+// import Button from '../../components/Button/Button.jsx';
 
 
 describe("renders game start page", () => {
@@ -11,7 +12,7 @@ describe("renders game start page", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<StartPage />);
+    wrapper = shallow(<StartPage />);
   })
 
   test('title is present', () => {
@@ -23,8 +24,8 @@ describe("renders game start page", () => {
   });
 
   test('has a start button with correct text', () => {
-    expect(wrapper.find(Button)).toHaveLength(1);
-    expect(wrapper.find(Button).text()).toBe("Start");
+    expect(wrapper.find(Link)).toHaveLength(1);
+    expect(wrapper.find(Link).text()).toBe("Start");
   })
 
 });
