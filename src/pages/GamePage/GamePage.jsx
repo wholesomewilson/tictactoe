@@ -5,7 +5,7 @@ import Board from '../../components/Board/Board.jsx';
 const GamePage = () => {
   return(
     <div>
-      <h1>Game Page</h1>
+      <h1 className="text-center">Game Page</h1>
       <PlayerInfo />
       <Board />
     </div>

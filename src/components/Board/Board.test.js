@@ -8,10 +8,10 @@ describe('render Board', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Board />)
+    wrapper = shallow(<Board />);
   });
 
-  it('has 9 Squares', () =>{
+  it('has 9 Squares', () => {
     expect(wrapper.find(Square)).toHaveLength(9);
-  })
+  });
 });

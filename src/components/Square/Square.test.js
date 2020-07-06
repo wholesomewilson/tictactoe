@@ -7,10 +7,14 @@ describe('render button with correct onclick', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Square />)
+    wrapper = shallow(<Square value="X" />)
   })
 
   it('button is present', () => {
     expect(wrapper.find('button')).toHaveLength(1);
+  });
+
+  it('render text according to props', () => {
+    expect(wrapper.find('button').text()).toBe("X");
   });
 });
