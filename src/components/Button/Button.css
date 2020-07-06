@@ -1,0 +1,8 @@
+.general_button{
+  width: 5rem;
+  height: 2rem;
+  background-color: #d546a6;
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+}
