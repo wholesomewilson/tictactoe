@@ -15,3 +15,26 @@ describe('render Board', () => {
     expect(wrapper.find(Square)).toHaveLength(9);
   });
 });
+
+describe('reacts according to game play', () => {
+  let wrapper;
+  const setSquares = jest.fn();
+  const useStateSpy = jest.spyOn(React, 'useState');
+  useStateSpy.mockImplementation((init) => [init, setSquares]);
+
+  beforeEach(() => {
+    wrapper = mount(<Board />);
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('render symbol according to player turn', () => {
+    wrapper.find(Square).first().simulate('click');
+    expect(wrapper.find('.board').text()).toContain('X')
+    wrapper.find(Square).last().simulate('click');
+    expect(wrapper.find('.board').text()).toContain('O')
+  });
+  
+});

@@ -1,6 +1,6 @@
 .square {
   font-size: 3.4em;
-  font-size: 16vmin;  /* Responsive font size! Awesome! */
+  font-size: 14vmin;  /* Responsive font size! Awesome! */
   height: 100%;  /* Fill the container (td) */
   width: 100%;
 }

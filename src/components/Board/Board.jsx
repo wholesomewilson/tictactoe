@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Square from '../Square/Square.jsx';
 import './Board.css';
 
-const row = Array(3).fill("");
-
 const Board = () => {
+
+  const row = Array(3).fill("");
+  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [isXnext, setIsXnext] = useState(true);
+  let square_num = 0;
+
   return(
     <div className="container">
       <table className="board center">
@@ -12,7 +16,18 @@ const Board = () => {
           {row.map( (e, i) => {
             return(
               <tr className="board_row" key={i}>
-                {row.map((e,i) => <td key={"td_"+i}><Square key={"square_"+i} /></td>)}
+                {row.map((e,i) =>
+                  <td key={"td_"+i} id={i}>
+                    <Square
+                      key={"square_"+i}
+                      i={square_num++}
+                      squares={squares}
+                      setSquares={setSquares}
+                      isXnext={isXnext}
+                      setIsXnext={setIsXnext}
+                    />
+                  </td>
+                )}
               </tr>
             )
           })}
