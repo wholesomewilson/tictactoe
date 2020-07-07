@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
 import Board from './Board.jsx';
 import Square from '../Square/Square.jsx';
+import GameStatus from '../GameStatus/GameStatus.jsx';
 
 describe('render Board', () => {
   let wrapper;
@@ -13,6 +14,10 @@ describe('render Board', () => {
 
   it('has 9 Squares', () => {
     expect(wrapper.find(Square)).toHaveLength(9);
+  });
+
+  it('GameStatus is present', () => {
+    expect(wrapper.find(GameStatus)).toHaveLength(1);
   });
 });
 
@@ -36,5 +41,5 @@ describe('reacts according to game play', () => {
     wrapper.find(Square).last().simulate('click');
     expect(wrapper.find('.board').text()).toContain('O')
   });
-  
+
 });

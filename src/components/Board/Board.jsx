@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Square from '../Square/Square.jsx';
+import GameStatus from '../GameStatus/GameStatus.jsx';
 import './Board.css';
 
 const Board = () => {
@@ -7,10 +8,12 @@ const Board = () => {
   const row = Array(3).fill("");
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [isXnext, setIsXnext] = useState(true);
+
   let square_num = 0;
 
   return(
-    <div className="container">
+    <div className="container text-center">
+      <GameStatus />
       <table className="board center">
         <tbody>
           {row.map( (e, i) => {
