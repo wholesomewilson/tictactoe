@@ -1,35 +1,39 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
-import GameStatus from './GameStatus.jsx'
+import GameStatus from './GameStatus.jsx';
+import GameOver from './GameOver/GameOver.jsx';
 
-describe('render page with correct status', ()  => {
+describe('render page with correct caption', ()  => {
   let wrapper;
-  let squares;
-  let nextPlayer;
+  const squaresWithWinner = ['X', 'X', 'X', null, null, null, null, null, null];
+  const squaresWithDraw = ['X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'O'];
 
   it('render winner name', () => {
-    squares = ['X', 'X', 'X', null, null, null, null, null, null];
-    wrapper = shallow(<GameStatus squares={squares} />)
-    expect(wrapper.find('div').text()).toContain('Player 1');
+    wrapper = mount(<GameStatus squares={squaresWithWinner} />)
+    expect(wrapper.find('.game_over_wrapper').text()).toContain('Player 1');
+    expect(wrapper.find('#restart_button')).toHaveLength(1);
   });
 
   it('render Draw! if board is full', () => {
-    squares = ['X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'O'];
-    wrapper = shallow(<GameStatus squares={squares} />)
-    expect(wrapper.find('div').text()).toContain('Draw!');
+    wrapper = mount(<GameStatus squares={squaresWithDraw} />)
+    expect(wrapper.find('.game_over_wrapper').text()).toContain('Draw!');
+    expect(wrapper.find('#restart_button')).toHaveLength(1);
   });
 
-  it('render Next Player name if game is not over', () => {
-    nextPlayer = {name: "Player 1", symbol: "X"};
-    wrapper = shallow(<GameStatus nextPlayer={nextPlayer} />)
+  it('render Player 1 name when game starts', () => {
+    wrapper = shallow(<GameStatus />)
     expect(wrapper.find('div').text()).toContain('X');
   });
 
   it('render Next Player name if game is not over', () => {
-    squares = ['O', null, null, null, null, null, null, null, null];
-    nextPlayer = {name: "Player 2", symbol: "O"};
-    wrapper = shallow(<GameStatus squares={squares} nextPlayer={nextPlayer} />)
+    let nextSymbol = "O";
+    wrapper = shallow(<GameStatus nextSymbol={nextSymbol} />)
     expect(wrapper.find('div').text()).toContain('O');
   });
+
+  it('render GameOver when there is a winner', () =>{
+    wrapper = shallow(<GameStatus squares={squaresWithWinner}/>);
+    expect(wrapper.find(GameOver)).toHaveLength(1);
+  })
 });

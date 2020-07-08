@@ -23,17 +23,10 @@ describe('render Board', () => {
 
 describe('reacts according to game play', () => {
   let wrapper;
-  const setSquares = jest.fn();
-  const useStateSpy = jest.spyOn(React, 'useState');
-  useStateSpy.mockImplementation((init) => [init, setSquares]);
 
   beforeEach(() => {
     wrapper = mount(<Board />);
   })
-
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
 
   it('render symbol according to player turn', () => {
     wrapper.find(Square).first().simulate('click');

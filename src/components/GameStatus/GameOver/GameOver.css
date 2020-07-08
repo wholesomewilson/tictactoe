@@ -1,0 +1,38 @@
+.game_over_overlay{
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.game_over_wrapper{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.game_over_caption{
+  color: #fff;
+  font-size: 3vmax;
+}
+
+#restart_button{
+  margin-top: 20px;
+  width: 23vmax;
+  height: 7vmax;
+  background-color: #d546a6;
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 4vmax;
+}

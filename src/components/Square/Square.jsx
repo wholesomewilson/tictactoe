@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Square.css";
 
-const Square = ({i = 0, setSquares = null, squares = [], isXnext, setIsXnext}) => {
+const Square = ({i = 0, setSquares = null, squares = [], isXnext = true, setIsXnext = null}) => {
   const value = squares[i];
   let nextSquares = squares.slice();
 
@@ -9,9 +9,11 @@ const Square = ({i = 0, setSquares = null, squares = [], isXnext, setIsXnext}) =
     <button
       className='square'
       onClick={() => {
-        nextSquares[i] = isXnext ? 'X' : 'O';
-        setSquares(nextSquares)
-        setIsXnext(!isXnext)
+        if (value == null) {
+          nextSquares[i] = isXnext ? 'X' : 'O';
+          setSquares(nextSquares)
+          setIsXnext(!isXnext)
+        }
       }}
     >{value}</button>
   )
