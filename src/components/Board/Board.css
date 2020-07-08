@@ -1,3 +1,7 @@
+.board{
+  position: relative;
+}
+
 table {
   max-width: 420px;
   max-height: 420px;

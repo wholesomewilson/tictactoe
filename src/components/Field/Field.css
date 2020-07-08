@@ -1,5 +1,5 @@
 .wrapper{
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 label{
@@ -10,7 +10,7 @@ label{
 input{
   min-width: 200px;
   max-width: 315px;
-  width: 50%;
+  width: 55%;
   height: 25px;
   font-size: 20px;
 }

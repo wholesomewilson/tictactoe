@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme';
 import Board from './Board.jsx';
 import Square from '../Square/Square.jsx';
 import GameStatus from '../GameStatus/GameStatus.jsx';
+import StoreProvider from '../../utils/store';
 
 describe('render Board', () => {
   let wrapper;
@@ -25,7 +26,7 @@ describe('reacts according to game play', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<Board />);
+    wrapper = mount(<StoreProvider><Board /></StoreProvider>);
   })
 
   it('render symbol according to player turn', () => {

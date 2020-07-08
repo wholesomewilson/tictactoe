@@ -12,9 +12,9 @@ const Board = () => {
   let square_num = 0;
 
   return(
-    <div className="container text-center">
+    <div className="board text-center">
       <GameStatus squares={squares} setSquares={setSquares} nextSymbol={nextSymbol}/>
-      <table className="board center">
+      <table className="center">
         <tbody>
           {row.map( (e, i) => {
             return(

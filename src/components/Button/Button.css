@@ -1,8 +1,9 @@
 .general_button{
-  width: 5rem;
-  height: 2rem;
+  width: 23vmax;
+  height: 7vmax;
   background-color: #d546a6;
   border: none;
   border-radius: 16px;
   color: #fff;
+  font-size: 3.5vmax;
 }

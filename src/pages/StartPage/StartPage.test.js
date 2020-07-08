@@ -1,10 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import StartPage from './StartPage';
 import Field from '../../components/Field/Field.jsx';
 import Button from '../../components/Button/Button.jsx';
+import StoreProvider, { StoreContext } from '../../utils/store';
 
 
 describe("renders game start page", () => {
@@ -12,7 +13,13 @@ describe("renders game start page", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<StartPage />);
+    wrapper = mount(
+      <StoreProvider>
+        <Router>
+          <StartPage />
+        </Router>
+      </StoreProvider>
+    );
   })
 
   test('title is present', () => {

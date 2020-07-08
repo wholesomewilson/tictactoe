@@ -1,28 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './PlayerInfo.css';
+import { StoreContext } from '../../utils/store';
+import PlayerInfoCard from './PlayerInfoCard/PlayerInfoCard.jsx';
 
-const default_player_info = {
-  player_1: {
-    name: "Player 1",
-    score: 0
-  },
-  player_2: {
-    name: "Player 2",
-    score: 0
-  }
-}
-
-const PlayerInfo = ({ player_info = default_player_info }) => {
+const PlayerInfo = () => {
+  const { playerInfo } = useContext(StoreContext);
+  const [ playerState ] = playerInfo;
+  const {
+    X: {
+      name: player1Name,
+      score: player1Score
+    },
+    O: {
+      name: player2Name,
+      score: player2Score
+    }
+  } = playerState;
   return(
     <div className="player_info_wrapper text-center">
-      {Object.keys(player_info).map( (key, value) => {
-        return(
-          <div className="player_info" key={key}>
-            <div className="player_name" key={`${key}_name`} id={`${key}_name`}>{player_info[key].name}</div>
-            <div className="player_score" key={`${key}_score`} id={`${key}_score`}>{player_info[key].score}</div>
-          </div>
-        )
-      })}
+      <PlayerInfoCard symbol="X" name={player1Name} score={player1Score}/>
+      <PlayerInfoCard symbol="O" name={player2Name} score={player2Score}/>
     </div>
   )
 };

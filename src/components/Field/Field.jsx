@@ -1,11 +1,12 @@
 import React from 'react';
 import './Field.css';
 
-const Field = ({ player, label }) => {
+const Field = ({ symbol, labelText, handleChange }) => {
+
   return(
     <div className="wrapper center">
-      <label htmlFor={player}>{label}</label>
-      <input id={player} type='text'></input>
+      <label htmlFor={symbol}>{labelText}</label>
+      <input id={symbol} type='text' onChange={handleChange} autoComplete="off" maxLength="16"></input>
     </div>
   )
 }

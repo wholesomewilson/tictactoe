@@ -1,23 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
 import PlayerInfo from './PlayerInfo.jsx';
+import StoreProvider from '../../utils/store';
 
 describe('render player names', () => {
   let wrapper;
-  const player_info_mock = {
-    player_1: {
-      name: "Avery",
-      score: 0
-    },
-    player_2: {
-      name: "Jessica",
-      score: 0
-    }
-  };
 
   beforeEach(() => {
-    wrapper = shallow(<PlayerInfo player_info={player_info_mock} />);
+    wrapper = mount(
+      <StoreProvider>
+        <PlayerInfo />
+      </StoreProvider>
+    );
   });
 
   it('has two player names', () => {
@@ -25,13 +20,13 @@ describe('render player names', () => {
   });
 
   it('render the correct names', () => {
-    expect(wrapper.find('#player_1_name').text()).toBe(player_info_mock.player_1.name)
-    expect(wrapper.find('#player_2_name').text()).toBe(player_info_mock.player_2.name)
+    expect(wrapper.find('#X_name').text()).toBe("Player 1");
+    expect(wrapper.find('#O_name').text()).toBe("Player 2");
   });
 
   it('render the correct scores', () => {
-    expect(wrapper.find('#player_1_score').text()).toBe(player_info_mock.player_1.score.toString())
-    expect(wrapper.find('#player_2_score').text()).toBe(player_info_mock.player_2.score.toString())
+    expect(wrapper.find('#X_score').text()).toBe("0")
+    expect(wrapper.find('#O_score').text()).toBe("0")
   });
 
 });

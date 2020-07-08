@@ -8,7 +8,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route path='/start' exact component={StartPage} />
-        <Route path="/game" exact component={GamePage}/>
+        <Route path='/game' exact component={GamePage} />
         <Redirect from="/*" to="/start" />
       </Switch>
     </Router>

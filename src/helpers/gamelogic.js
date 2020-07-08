@@ -12,7 +12,7 @@ export const get_winner = (squares) => {
 
   for(let i = 0; i < winningLines.length; i++){
     const [a, b, c] = winningLines[i];
-    if (squares[a] && squares[a] == squares[b] && squares[a] == squares[c]){
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
       return squares[a]
     }
   }
@@ -26,4 +26,18 @@ export const is_board_full = (squares) => {
     }
   }
   return true;
+}
+
+export const reset_board = (setSquares, setPlayerState, winner) => {
+  const squares = Array(9).fill(null);
+  setSquares(squares);
+  if(winner){
+    setPlayerState( prevState => {
+      return {
+        ...prevState, [winner]:{
+          ...prevState[winner], score: prevState[winner]['score']+1
+        }
+      }
+    });
+  };
 }
