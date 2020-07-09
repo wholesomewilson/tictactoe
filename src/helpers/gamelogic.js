@@ -30,14 +30,37 @@ export const is_board_full = (squares) => {
 
 export const reset_board = (setSquares, setPlayerState, winner) => {
   const squares = Array(9).fill(null);
+  let newScore;
   setSquares(squares);
   if(winner){
     setPlayerState( prevState => {
+      newScore = prevState[winner]['score']+1
+      localStorage.setItem(`${winner}_score`, newScore)
       return {
         ...prevState, [winner]:{
-          ...prevState[winner], score: prevState[winner]['score']+1
+          ...prevState[winner], score: newScore
         }
       }
     });
   };
+}
+
+export const reset_game = ([playerState, setPlayerState]) => {
+  Object.keys(playerState).map( (key) => {
+    setPlayerState(prevState => {
+      return { ...prevState, [key]: { ...prevState[key], score: 0 } }
+    });
+    localStorage.setItem(`${key}_name`, playerState[key]['name']);
+    localStorage.setItem(`${key}_score`, 0);
+  })
+}
+
+export const reset_score_and_board = ([playerState, setPlayerState], setSquares) => {
+  setSquares(Array(9).fill(null));
+  Object.keys(playerState).map( (key) => {
+    setPlayerState(prevState => {
+      return { ...prevState, [key]: { ...prevState[key], score: 0 } }
+    });
+    localStorage.setItem(`${key}_score`, 0);
+  })
 }

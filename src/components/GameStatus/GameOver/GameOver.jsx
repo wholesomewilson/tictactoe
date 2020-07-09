@@ -7,7 +7,7 @@ const GameOver = ({ caption, onclick=null }) => {
     <div className="game_over_overlay">
       <div className="game_over_wrapper">
         <div className="game_over_caption">{caption}</div>
-        <Button button_id="restart_button" button_text="restart" onclick={onclick} />
+        <Button button_id="restart_button" button_text="Play Again!" onclick={onclick} />
       </div>
     </div>
   )

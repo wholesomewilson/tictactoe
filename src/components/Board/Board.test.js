@@ -10,7 +10,7 @@ describe('render Board', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Board />);
+    wrapper = mount(<StoreProvider><Board /></StoreProvider>);
   });
 
   it('has 9 Squares', () => {

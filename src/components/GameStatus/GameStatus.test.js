@@ -4,10 +4,15 @@ import { shallow, mount } from 'enzyme';
 import GameStatus from './GameStatus.jsx';
 import GameOver from './GameOver/GameOver.jsx';
 import StoreProvider from '../../utils/store';
+import LocalStorageMock from '../../utils/localStorageMock.js'
 
 
 describe('render page with correct caption', ()  => {
   let wrapper;
+  const localStorageMock = new LocalStorageMock;
+  global.localStorage = localStorageMock;
+  localStorage.setItem("X_name", "Player 1");
+  localStorage.setItem("X_score", "0");
   const squaresWithWinner = ['X', 'X', 'X', null, null, null, null, null, null];
   const squaresWithDraw = ['X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'O'];
 

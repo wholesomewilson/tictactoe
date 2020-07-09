@@ -2,10 +2,16 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
 import PlayerInfoCard from './PlayerInfoCard.jsx';
+import LocalStorageMock from '../../../utils/localStorageMock.js'
 
 describe("renders page correctly", () => {
 
-  const wrapper = shallow(<PlayerInfoCard symbol="X" name="Player 1" score={0}/>)
+  const localStorageMock = new LocalStorageMock;
+  global.localStorage = localStorageMock;
+  localStorage.setItem("X_name", "Player 1");
+  localStorage.setItem("X_score", "0");
+  const wrapper = shallow(<PlayerInfoCard symbol="X"/>)
+
 
   test('player name is present', () => {
     expect(wrapper.find('#X_name').text()).toBe("Player 1")
