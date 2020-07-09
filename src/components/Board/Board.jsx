@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Square from '../Square/Square.jsx';
 import Button from '../Button/Button.jsx';
 import GameStatus from '../GameStatus/GameStatus.jsx';
 import { StoreContext } from '../../utils/store';
-import { reset_score_and_board } from '../../helpers/gamelogic.js';
+import { reset_score_and_board, reset_game } from '../../helpers/gamelogic.js';
 import './Board.css';
 
 const Board = () => {
@@ -15,8 +16,12 @@ const Board = () => {
   const nextSymbol = isXnext ? "X" : "O";
   let square_num = 0;
 
-  const handleClick = () => {
+  const handleClickResetScoreBoard = () => {
     reset_score_and_board(playerInfo, setSquares)
+  }
+
+  const handleClickResetGame = () => {
+    reset_game(playerInfo, setSquares)
   }
 
   return(
@@ -44,7 +49,14 @@ const Board = () => {
           })}
         </tbody>
       </table>
-      <Button button_id="reset_score_button" button_text="Reset" onclick={handleClick} />
+      <div className="reset_button_wrapper">
+        <Link to='/start'>
+          <Button button_id="reset_game_button" button_text="Reset Game" onclick={handleClickResetGame} />
+        </Link>
+      </div>
+      <div className="reset_button_wrapper">
+        <Button button_id="reset_score_button" button_text="Reset Score" onclick={handleClickResetScoreBoard} />
+      </div>
     </div>
   );
 };

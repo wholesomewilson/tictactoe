@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import Board from './Board.jsx';
 import Square from '../Square/Square.jsx';
 import GameStatus from '../GameStatus/GameStatus.jsx';
@@ -10,7 +11,12 @@ describe('render Board', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<StoreProvider><Board /></StoreProvider>);
+    wrapper = mount(
+      <StoreProvider>
+        <Router>
+          <Board />
+        </Router>
+      </StoreProvider>);
   });
 
   it('has 9 Squares', () => {
@@ -26,8 +32,13 @@ describe('reacts according to game play', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<StoreProvider><Board /></StoreProvider>);
-  })
+    wrapper = mount(
+      <StoreProvider>
+        <Router>
+          <Board />
+        </Router>
+      </StoreProvider>);
+  });
 
   it('render symbol according to player turn', () => {
     wrapper.find(Square).first().simulate('click');
