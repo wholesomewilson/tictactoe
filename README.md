@@ -9,7 +9,7 @@ React (with create-react-app)
 4. npm run start
 5. application will run on localhost:3000 in browser
 
-###Game Design
+### Game Design
 1. Start by entering your names on Start Page (default names for the players are "Player 1" and "Player 2")
 2. Player 1 is assigned with symbol "X"
 3. Player 2 is assigned with symbol "O"
@@ -21,7 +21,7 @@ React (with create-react-app)
 ### Tech Stack
 Jest and Enzymes
 
-###Why TDD?
+### Why TDD?
 To be honest, it's my first project to develop with a strict TDD approach. To my surprise, i really enjoyed it a lot! Writing tests first helped me in framing the app design, cutting down redundancy and reducing debugging time. With robust and reliable tests, it builds confidence when there is an introduction of new feature or refactoring of existing codes. (and since writing tests is an important aspect of software development and a good software engineering practice, why not just write test right from the start to avoid the pain at the end?).
 
 ## App Design
