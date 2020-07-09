@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { StoreContext } from '../../utils/store';
 import GameOver from './GameOver/GameOver.jsx';
 import { getLocalStorageItemIfExists } from '../../helpers/localstoragehelper.js';
 import { get_winner, is_board_full, reset_board } from '../../helpers/gamelogic.js';
 import './GameStatus.css';
 
-const GameStatus = ({ squares=Array(9).fill(null), setSquares=null, nextSymbol= "X" }) => {
+const GameStatus = ({ squares=Array(9).fill(null), setSquares=null, nextSymbol="X" }) => {
   const { playerInfo } = useContext(StoreContext);
   const [ playerState, setPlayerState ] = playerInfo;
   const winnerSymbol = get_winner(squares);
@@ -16,7 +17,7 @@ const GameStatus = ({ squares=Array(9).fill(null), setSquares=null, nextSymbol= 
   const getWinnerName = () => (
     getLocalStorageItemIfExists(winnerSymbol, "name", playerState)
   );
-  
+
   const handleReset = () => {
     reset_board(setSquares, setPlayerState, winnerSymbol);
   };
@@ -30,5 +31,11 @@ const GameStatus = ({ squares=Array(9).fill(null), setSquares=null, nextSymbol= 
     </div>
   );
 };
+
+GameStatus.propTypes = {
+  squares: PropTypes.array,
+  setSquares: PropTypes.func,
+  nextSymbol: PropTypes.string,
+}
 
 export default GameStatus;

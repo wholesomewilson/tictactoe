@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { StoreContext } from '../../../utils/store';
 import Button from '../../Button/Button.jsx'
 import { reset_score_and_board, reset_game } from '../../../helpers/gamelogic.js';
 import './BoardButtons.css';
-
 
 const BoardButtons = ({ setSquares }) => {
   const { playerInfo } = useContext(StoreContext);
@@ -30,5 +30,9 @@ const BoardButtons = ({ setSquares }) => {
     </div>
   );
 };
+
+BoardButtons.propTypes = {
+  setSquares: PropTypes.func
+}
 
 export default BoardButtons;

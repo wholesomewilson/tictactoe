@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Square from '../../Square/Square.jsx';
 import './BoardSquares.css';
 
@@ -31,5 +32,12 @@ const BoardSquares = ({ squares, setSquares, isXnext, setIsXnext }) => {
     </table>
   );
 };
+
+BoardSquares.propTypes = {
+  squares: PropTypes.array,
+  setSquares: PropTypes.func,
+  isXnext: PropTypes.bool,
+  setIsXnext: PropTypes.func
+}
 
 export default BoardSquares;

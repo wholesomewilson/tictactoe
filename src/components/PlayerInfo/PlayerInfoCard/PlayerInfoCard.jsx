@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PlayerInfoCard = ({ symbol, name, score }) => {
   if (localStorage.getItem(`${symbol}_name`) != null){
@@ -15,5 +16,11 @@ const PlayerInfoCard = ({ symbol, name, score }) => {
     </div>
   );
 };
+
+PlayerInfoCard.propTypes = {
+  symbol: PropTypes.string,
+  name: PropTypes.string,
+  score: PropTypes.number
+}
 
 export default PlayerInfoCard;

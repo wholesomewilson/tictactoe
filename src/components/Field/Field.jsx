@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Field.css';
 
 const Field = ({ symbol, labelText, handleChange, val }) => {
@@ -16,6 +17,13 @@ const Field = ({ symbol, labelText, handleChange, val }) => {
       </input>
     </div>
   )
+}
+
+Field.propTypes = {
+  symbol: PropTypes.string,
+  labelText: PropTypes.string,
+  handleChange: PropTypes.func,
+  val: PropTypes.string
 }
 
 export default Field

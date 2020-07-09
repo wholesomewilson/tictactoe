@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../Button/Button.jsx'
 import './GameOver.css';
 
-const GameOver = ({ caption, onclick=null }) => {
+const GameOver = ({ caption, onclick }) => {
   return(
     <div className="game_over_overlay">
       <div className="game_over_wrapper">
@@ -12,5 +13,10 @@ const GameOver = ({ caption, onclick=null }) => {
     </div>
   );
 };
+
+GameOver.propTypes = {
+  caption: PropTypes.string,
+  onclick: PropTypes.func
+}
 
 export default GameOver;
