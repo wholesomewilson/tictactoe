@@ -1,6 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Board from './Board.jsx';
 import Square from '../Square/Square.jsx';
@@ -44,22 +43,18 @@ describe('render Board', () => {
 });
 
 describe('reacts according to game play', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = mount(
-      <StoreProvider>
-        <Router>
-          <Board />
-        </Router>
-      </StoreProvider>);
-  });
+  const wrapper= mount(
+    <StoreProvider>
+      <Router>
+        <Board />
+      </Router>
+    </StoreProvider>
+  );
 
   it('render symbol according to player turn', () => {
     wrapper.find(Square).first().simulate('click');
-    expect(wrapper.find('.board').text()).toContain('X')
+    expect(wrapper.find('.board').text()).toContain('X');
     wrapper.find(Square).last().simulate('click');
-    expect(wrapper.find('.board').text()).toContain('O')
+    expect(wrapper.find('.board').text()).toContain('O');
   });
-
 });
