@@ -6,6 +6,8 @@ import Board from './Board.jsx';
 import Square from '../Square/Square.jsx';
 import Button from '../Button/Button.jsx';
 import GameStatus from '../GameStatus/GameStatus.jsx';
+import BoardButtons from './BoardButtons/BoardButtons.jsx';
+import BoardSquares from './BoardSquares/BoardSquares.jsx';
 import StoreProvider from '../../utils/store';
 
 describe('render Board', () => {
@@ -28,7 +30,15 @@ describe('render Board', () => {
     expect(wrapper.find(GameStatus)).toHaveLength(1);
   });
 
-  it('GameStatus is present', () => {
+  it('BoardButtons is present', () => {
+    expect(wrapper.find(BoardButtons)).toHaveLength(1);
+  });
+
+  it('BoardSquares is present', () => {
+    expect(wrapper.find(BoardSquares)).toHaveLength(1);
+  });
+
+  it('has two Button is present', () => {
     expect(wrapper.find(Button)).toHaveLength(2);
   });
 });
