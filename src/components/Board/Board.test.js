@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Board from './Board.jsx';
 import Square from '../Square/Square.jsx';
+import Button from '../Button/Button.jsx';
 import GameStatus from '../GameStatus/GameStatus.jsx';
 import StoreProvider from '../../utils/store';
 
@@ -25,6 +26,10 @@ describe('render Board', () => {
 
   it('GameStatus is present', () => {
     expect(wrapper.find(GameStatus)).toHaveLength(1);
+  });
+
+  it('GameStatus is present', () => {
+    expect(wrapper.find(Button)).toHaveLength(2);
   });
 });
 

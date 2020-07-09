@@ -1,0 +1,8 @@
+.reset_button_wrapper{
+  display: inline-block;
+  width: 50%;
+}
+
+#reset_score_button{
+  margin-top: 30px;
+}
