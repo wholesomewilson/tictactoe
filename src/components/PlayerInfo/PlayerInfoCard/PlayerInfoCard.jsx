@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './PlayerInfoCard.css';
 
 const PlayerInfoCard = ({ symbol, name, score }) => {
   if (localStorage.getItem(`${symbol}_name`) != null){
@@ -10,7 +11,7 @@ const PlayerInfoCard = ({ symbol, name, score }) => {
   };
 
   return (
-    <div className="player_info">
+    <div className="player_info_card">
       <div className="player_name" id={`${symbol}_name`}>{name}</div>
       <div className="player_score" id={`${symbol}_score`}>{score}</div>
     </div>
