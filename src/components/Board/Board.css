@@ -1,17 +1,3 @@
 .board{
   position: relative;
 }
-
-table {
-  max-width: 420px;
-  max-height: 420px;
-  width: 85vw;  /* 85% of the viewport (body) width */
-  height: 85vw;
-  border-spacing: 4px 2px;  /* Space between cells */
-}
-
-td {
-  padding: 0;
-  width: 33%;  /* Every cell should be 1/3 of table height (and width) */
-  height: 33%;
-}

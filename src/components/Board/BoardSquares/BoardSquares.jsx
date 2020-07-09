@@ -1,5 +1,6 @@
 import React from 'react';
 import Square from '../../Square/Square.jsx';
+import './BoardSquares.css';
 
 const BoardSquares = ({ squares, setSquares, isXnext, setIsXnext }) => {
   const row = Array(3).fill("");
