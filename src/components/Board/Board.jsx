@@ -1,15 +1,10 @@
-import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import Square from '../Square/Square.jsx';
-import Button from '../Button/Button.jsx';
 import BoardButtons from './BoardButtons/BoardButtons.jsx';
 import GameStatus from '../GameStatus/GameStatus.jsx';
-import { StoreContext } from '../../utils/store';
 import './Board.css';
 
 const Board = () => {
-
-  const { playerInfo } = useContext(StoreContext);
   const row = Array(3).fill("");
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [isXnext, setIsXnext] = useState(true);

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Field from '../../components/Field/Field.jsx';
 import Button from '../../components/Button/Button.jsx';
@@ -6,14 +6,16 @@ import { StoreContext } from '../../utils/store';
 import { reset_game } from '../../helpers/gamelogic.js'
 
 const StartPage = () => {
-
   const { playerInfo } = useContext(StoreContext);
   const [ playerState, setPlayerState ] = playerInfo;
-  const player1Name = playerState["X"]["name"]
-  const player2Name = playerState["O"]["name"]
-
-  const nameInputX = useRef(null);
-  const nameInputO = useRef(null);
+  const {
+    X: {
+      name: player1Name
+    },
+    O: {
+      name: player2Name
+    }
+  } = playerState;
 
   const handleChange = e => {
     const { id, value } = e.target;
@@ -29,8 +31,8 @@ const StartPage = () => {
   return(
     <div className="text-center">
       <h1>Tic Tac Toe</h1>
-      <Field symbol="X" labelText="Player 1" handleChange={handleChange} useref={nameInputX} val={player1Name} />
-      <Field symbol="O" labelText="Player 2" handleChange={handleChange} useref={nameInputO} val={player2Name}/>
+      <Field symbol="X" labelText="Player 1" handleChange={handleChange} val={player1Name} />
+      <Field symbol="O" labelText="Player 2" handleChange={handleChange} val={player2Name}/>
       <Link to='/game'>
         <Button button_text="Start" onclick={handleClick} />
       </Link>

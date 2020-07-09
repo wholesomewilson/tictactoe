@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const StoreContext = React.createContext(null)
+export const StoreContext = React.createContext(null);
 
 export default ({ children }) => {
   const defaultPlayerInfo = {
@@ -14,11 +14,10 @@ export default ({ children }) => {
     }
   };
   const [playerState, setPlayerState] = useState(defaultPlayerInfo);
-
   const store = {
     playerInfo: [playerState, setPlayerState],
     sharing: "hello"
   };
 
-  return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
+  return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;
 }

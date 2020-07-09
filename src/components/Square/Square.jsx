@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Square.css";
 
-const Square = ({i = 0, setSquares = null, squares = [], isXnext = true, setIsXnext = null}) => {
+const Square = ({ i=0, setSquares=null, squares=[], isXnext=true, setIsXnext=null }) => {
   const value = squares[i];
   let nextSquares = squares.slice();
 
@@ -16,8 +16,7 @@ const Square = ({i = 0, setSquares = null, squares = [], isXnext = true, setIsXn
         }
       }}
     >{value}</button>
-  )
-
-}
+  );
+};
 
 export default Square;

@@ -12,7 +12,7 @@ const App = () => {
         <Redirect from="/*" to="/start" />
       </Switch>
     </Router>
-  )
-}
+  );
+};
 
 export default App;

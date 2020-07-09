@@ -10,7 +10,7 @@ const GameOver = ({ caption, onclick=null }) => {
         <Button button_id="restart_button" button_text="Play Again!" onclick={onclick} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default GameOver;
